@@ -1,0 +1,51 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.list-group-item-warning {
+    background-color: #ffea00;
+}
+
+.list-group-item-success {
+    background-color: #d4edda;
+    font-weight: 700;
+}
+
+.list-group-item-danger {
+    background-color: #f8d7da;
+}
+
+.card-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 30%;
+    margin: 1rem;
+}
+
+.card-body {
+    text-align: center;
+}

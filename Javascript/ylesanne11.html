@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Õpilase nimi ja informatsioon</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Õpilase informatsioon</h1>
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Best Result</th>
+                    <th>Average Result</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-5">
+        <h1>Email</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nimi</th>
+                    <th>Email Address</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-5">
+        <h1>Otsingu tulemused</h1>
+
+        <div id="searchResults"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const opilased = [
+            { nimi: "Anna", tulemused: [4.5, 4.8, 4.6] },
+            { nimi: "Mart", tulemused: [5.2, 5.1, 5.4] },
+            { nimi: "Kati", tulemused: [4.9, 5.0, 4.7] },
+            { nimi: "Jaan", tulemused: [4.3, 4.6, 4.4] },
+            { nimi: "Liis", tulemused: [5.0, 5.2, 5.1] },
+            { nimi: "Erik", tulemused: [5.5, 5.3, 5.4] },
+            { nimi: "Eva", tulemused: [4.8, 4.9, 4.7] },
+            { nimi: "Marten", tulemused: [4.7, 4.6, 4.8] },
+            { nimi: "Kairi", tulemused: [5.1, 5.3, 5.0] },
+            { nimi: "Rasmus", tulemused: [4.4, 4.5, 4.3] },
+        ];
+
+        const nimed = ["mari maasikas", "jaan jõesaar", "kristiina kukk", "margus mustikas", "jaak jarve", "kadi kask", "Toomas Tamm", "Kadi Meri", "Leena Laas", "Madis Mets", "Hannes Hõbe", "Anu Allikas", "Kristjan Kaar", "Eva Esimene", "Jüri Jõgi", "Liis Lepik", "Kalle Kask", "Tiina Teder", "Kaidi Koppel", "tiina Toom"];
+
+        const korraldatudNimed = nimed.map(nimi => {
+            const nimeOsad = nimi.split(' ');
+            const eesnimi = nimeOsad[0];
+            const perenimi = nimeOsad[1].toLowerCase();
+            return `${eesnimi.charAt(0).toUpperCase()}${eesnimi.slice(1)} ${perenimi}@metshein.com`;
+        });
+
+        const emailTableBody = document.querySelector('.container:nth-child(2) tbody');
+        korraldatudNimed.forEach(email => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>Email Address</td><td>${email}</td>`;
+            emailTableBody.appendChild(row);
+        });
+
+        function otsiNime(nimi) {
+            const leitudNimed = nimed.filter(n => n.toLowerCase().includes(nimi.toLowerCase()));
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+            if (leitudNimed.length > 0) {
+                leitudNimed.forEach(n => {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-success';
+                    alertDiv.textContent = n;
+                    searchResults.appendChild(alertDiv);
+                });
+            } else {
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert alert-danger';
+                alertDiv.textContent = 'Nime ei leitud.';
+                searchResults.appendChild(alertDiv);
+            }
+        }
+
+        otsiNime("kadi");
+
+        const tableBody = document.querySelector('.container:nth-child(1) tbody');
+
+        opilased.forEach(opilane => {
+            const parimTulemus = Math.max(...opilane.tulemused);
+            const keskmineTulemus = (opilane.tulemused.reduce((a, b) => a + b, 0) / opilane.tulemused.length).toFixed(2);
+
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${opilane.nimi}</td><td>${parimTulemus}</td><td>${keskmineTulemus}</td>`;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+
+</html>
