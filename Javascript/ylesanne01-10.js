@@ -152,7 +152,7 @@ noolefunk();
 //ylesanne 6//
 
 //bron
-const broneeringuarv = 4; // Sisestatud broneeringu arv
+const broneeringuarv = 4;
 
 switch (broneeringuarv) {
   case 1:
@@ -227,11 +227,11 @@ if (kasutajanimi === "admin") {
 const temperatuur = 20;
 
 if (temperatuur > 25) {
-  console.log("Vaga kuum ilm!");
+  console.log("Vaga kuuuuum ilm!");
 } else if (temperatuur >= 15 && temperatuur <= 25) {
-  console.log("Mõnus temperatuur");
+  console.log("Mõnna temperatuur");
 } else {
-  console.log("Jahe ilm");
+  console.log("brrrrrrr ilm");
 }
 //ylesanne 4//
 
@@ -265,7 +265,7 @@ console.log("Pool koodidest:", poolMassiivist)
 //sportlased
 let sportlased = [
   ["Alice", 25, [10.2, 9.8, 10.5]],
-  ["Bob", 22, [9.5, 9.6, 9.7]],
+  ["Erik", 22, [9.5, 9.6, 9.7]],
   ["Charlie", 28, [11.1, 11.2, 11.5]]
 ];
 
@@ -308,13 +308,13 @@ console.log(times);
 
 //sitttaat
 const kq = "Elu on nagu jalgratas. Et tasakaalus pusida, pead liikuma.";
-const autor = "Albert Einstein";
+const autor = "Erik Teppan";
 const fq = `${kq} - ${autor}`;
 console.log(fq);
 
 //mal
 const esin = "mario";
-const peren = "loll";
+const peren = "heamees";
 const tasin1 = `${esin[0]}${peren[0]}`;
 console.log(`Tere, minu nimi on ${esin} ${peren}.`);
 
@@ -352,7 +352,7 @@ console.log(arr);
 
 const z = true;
 console.log(z);
-
+//midagi on katki
 const f = FALSE;
 console.log(f);
 

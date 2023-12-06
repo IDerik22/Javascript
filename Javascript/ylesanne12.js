@@ -23,7 +23,7 @@ const toode = {
     ],
     kuvaSisu: function () {
       const ostukorvElement = document.getElementById("ostukorv");
-      ostukorvElement.innerHTML = ""; // Tühjendame ostukorvi sisu
+      ostukorvElement.innerHTML = "";
   
       this.tooted.forEach(function (toode) {
         const li = document.createElement("li");
